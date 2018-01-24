@@ -10,7 +10,7 @@
 `keikyu.py`をダウンロードやクローンして、運行情報を取得したいPythonスクリプトと同じディレクトリに保存してください。
 
 
-```
+```python
 import keikyu
 
 print keikyu.get_unko()
