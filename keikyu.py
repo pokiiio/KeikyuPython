@@ -3,6 +3,7 @@
 import urllib2
 from HTMLParser import HTMLParser
 
+
 def get_unko():
     # 京急運行情報のパーサー
     class KeikyuUnkoParser(HTMLParser):
@@ -15,7 +16,7 @@ def get_unko():
         # divタグで、classが"unko-panel"なものを探す
         def handle_starttag(self, tag, attrs):
             attrs = dict(attrs)
-            if tag == "div" and "class" in attrs and attrs["class"] == "unko-panel":
+            if tag == "a" and "href" in attrs and attrs["href"] == "https://unkou.keikyu.co.jp/" and "target" in attrs and attrs["target"] == "_blank":
                 self.flag = True
 
         # 上記の条件に合致するタグが発見できたら、そのタグで囲まれているdataを読み取る
